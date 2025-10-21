@@ -1,0 +1,7 @@
+# 忽略Hugo生成的整个public目录
+public/
+# 如果您使用Hugo模块，也可以忽略资源缓存目录
+resources/
+# 可选的，忽略其他系统或编辑器生成的临时文件
+.DS_Store
+*.tmp
