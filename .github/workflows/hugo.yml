@@ -28,5 +28,5 @@ jobs:
           external_repository: zebin-code/zebin-code.github.io # 修改为你的 GitHub Pages 仓库
           publish_dir: ./public
 #          keep_files: false
-          publish_branch: master
+          publish_branch: main
        

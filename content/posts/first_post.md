@@ -21,3 +21,6 @@ choco install hugo-extended
 
 
 > 这里选择 Lovelt分支0.3.0， hugo版本选择 0.145.
+
+
+# 测试推送是否正常 111
