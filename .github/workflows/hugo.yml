@@ -41,7 +41,7 @@ jobs:
           fi
 
       - name: Build
-        run: hugo --buildDrafts --buildExpired --buildFuture --minify --gc
+        run: hugo --buildDrafts
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
