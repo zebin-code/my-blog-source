@@ -10,6 +10,9 @@ jobs:
     steps:
       - name: Check out source
         uses: actions/checkout@v2
+        with:
+          submodules: true  # 确保拉取子模块
+          fetch-depth: 0  # 拉取所有提交记录，包括分支合并记录
 
       - name: Setup hugo
         uses: peaceiris/actions-hugo@v2
@@ -17,6 +20,25 @@ jobs:
 #          hugo-version: "latest" # 可以修改为你使用的 Hugo 版本
           hugo-version: "0.144.1" #
           extended: true # 设置是否需要 extended 版本
+
+      - name: Check themes directory
+        run: |
+          echo "=== 检查主题目录内容 ==="
+          ls -la themes/
+          echo "=== 检查LoveIt主题是否存在 ==="
+          if [ -d "themes/LoveIt" ]; then
+            echo "LoveIt主题目录存在"
+            echo "=== 检查LoveIt主题内部结构 ==="
+            ls -la themes/LoveIt/
+            echo "=== 检查LoveIt主题的layouts目录 ==="
+            if [ -d "themes/LoveIt/layouts" ]; then
+              ls -la themes/LoveIt/layouts/
+            else
+              echo "ERROR: LoveIt主题缺少layouts目录!"
+            fi
+          else
+            echo "ERROR: LoveIt主题目录不存在!"
+          fi
 
       - name: Build
         run: hugo
